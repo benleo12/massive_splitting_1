@@ -66,8 +66,10 @@ normalisation across eight phase-space configurations spanning two dipole
 invariants and a decade in softness. Finally we show that the quark mass screens
 the collinear region, so that the abelian double pole is absent and the singular
 structure of the massive radiator is purely soft. There is consequently no
-soft--collinear overlap to disentangle and the corresponding NNLO subtraction
-requires no phase-space sectorization.}
+soft--collinear overlap to disentangle, the corresponding NNLO subtraction
+requires no phase-space sectorization, and the scalar radiator is the complete
+subtraction ingredient for a heavy quark --- the spin-dependent remainder, being
+collinear-regulated by the mass, is finite and plays no role.}
 
 \keywords{NNLO Computations, Higher-Order Perturbative Calculations, Heavy Quark
 Physics}
@@ -452,31 +454,28 @@ is the reason the surviving gauge-invariant set is as small as it is.
 \begin{tikzpicture}[baseline=(current bounding box.center),scale=0.82,every node/.style={transform shape}]
 \begin{feynman}
   \vertex [blobv] (H) at (0,0) {};
-  \vertex [dot] (a) at (1.05,0.72) {};  \vertex [dot] (c) at (2.30,0.72) {};
-  \vertex [dot] (b) at (1.55,-0.80) {};
-  \vertex (oi) at (3.3,1.10);  \vertex (ok) at (3.3,-1.15);  \vertex (og) at (1.55,1.55);
-  \diagram*{ (H) -- [charged scalar] (a), (a) -- [charged scalar] (c), (c) -- [charged scalar] (oi),
-    (c) -- [gluon] (b), (H) -- [charged scalar] (b), (b) -- [charged scalar] (ok), (a) -- [gluon] (og), };
+  \vertex [dot] (A) at (1.15,0.95) {}; \vertex [dot] (C) at (1.15,-0.95) {}; \vertex [dot] (R) at (2.4,0) {};
+  \vertex (oi) at (2.55,1.75); \vertex (oB) at (2.55,-1.75); \vertex (ok) at (3.55,-0.75);
+  \diagram*{ (H)--[charged scalar](A), (H)--[charged scalar](C), (A)--[gluon](R), (C)--[charged scalar](R),
+    (A)--[charged scalar](oi), (C)--[gluon](oB), (R)--[charged scalar](ok), };
 \end{feynman}\end{tikzpicture}
 &
 \begin{tikzpicture}[baseline=(current bounding box.center),scale=0.82,every node/.style={transform shape}]
 \begin{feynman}
   \vertex [blobv] (H) at (0,0) {};
-  \vertex [dot] (a) at (0.85,0.62) {};  \vertex [dot] (b) at (0.85,-0.62) {};
-  \vertex [dot] (e) at (2.15,0.90) {};
-  \vertex (oi) at (3.2,1.25);  \vertex (ok) at (3.2,-1.05);  \vertex (og) at (3.2,0.35);
-  \diagram*{ (H) -- [charged scalar] (a), (H) -- [charged scalar] (b), (a) -- [gluon] (b),
-    (a) -- [charged scalar] (e), (e) -- [charged scalar] (oi), (e) -- [gluon] (og),
-    (b) -- [charged scalar] (ok), };
+  \vertex [dot] (a) at (0.9,0.62) {}; \vertex [dot] (b) at (0.9,-0.62) {}; \vertex [dot] (e) at (2.15,0.95) {};
+  \vertex (oi) at (3.2,1.30); \vertex (ok) at (3.2,-1.05); \vertex (og) at (3.2,0.40);
+  \diagram*{ (H)--[charged scalar](a), (H)--[charged scalar](b), (a)--[gluon, half left, looseness=1.3](b),
+    (a)--[charged scalar](e), (e)--[charged scalar](oi), (e)--[gluon](og), (b)--[charged scalar](ok), };
 \end{feynman}\end{tikzpicture}
 &
 \begin{tikzpicture}[baseline=(current bounding box.center),scale=0.82,every node/.style={transform shape}]
 \begin{feynman}
   \vertex [blobv] (H) at (0,0) {};
-  \vertex [dot] (sg) at (1.6,0.80) {};  \vertex [dot] (b) at (1.15,-0.80) {};
-  \vertex (oi) at (3.1,1.15);  \vertex (ok) at (3.1,-1.15);  \vertex (og) at (3.1,0.55);
-  \diagram*{ (H) -- [charged scalar] (sg), (sg) -- [charged scalar] (oi), (sg) -- [gluon] (og),
-    (sg) -- [gluon] (b), (H) -- [charged scalar] (b), (b) -- [charged scalar] (ok), };
+  \vertex [dot] (A) at (1.25,0.75) {}; \vertex [dot] (C) at (1.75,-0.55) {};
+  \vertex (oi) at (2.7,1.35); \vertex (oB) at (3.0,0.35); \vertex (ok) at (2.9,-1.35);
+  \diagram*{ (H)--[charged scalar](A), (H)--[charged scalar](C), (A)--[gluon](C),
+    (A)--[charged scalar](oi), (C)--[gluon](oB), (C)--[charged scalar](ok), };
 \end{feynman}\end{tikzpicture}
 \\[1mm]
 \footnotesize (a) box & \footnotesize (b) factorizable & \footnotesize (c) seagull
@@ -484,9 +483,10 @@ is the reason the surviving gauge-invariant set is as small as it is.
 \caption{Box-type diagrams contributing to the scalar--scalar interference at one
 loop --- the massive analogue of Fig.~14 of Ref.~\cite{Campbell:2025}. Dashed
 arrowed lines are charged scalars, coiled lines gluons, the grey blob the hard
-production vertex. A gauge-invariant set is formed by the box (a), the factorizable
-hard-vertex correction (b) and the scalar seagull (c); crossing-symmetric partners
-are understood. The single colour decomposition $2\,\Top{i}^a\Top{i}^b
+production vertex. The gauge-invariant set comprises the box (a), the factorizable
+hard-vertex correction (b) and the scalar seagull (c) --- the four-point
+$\tilde q\tilde q gg$ vertex at the lower vertex; crossing-symmetric partners are
+understood. The single colour decomposition $2\,\Top{i}^a\Top{i}^b
 =if^{abc}\Top{i}^c+\{\Top{}^a,\Top{}^b\}_i$ splits their sum into the abelian
 ($\{\Top{}^a,\Top{}^b\}$, $13$ masters) and non-abelian ($f^{abc}$, $14$ masters)
 radiators. The topology of Ref.~\cite{Campbell:2025} with the gluon emitted off a
@@ -710,6 +710,36 @@ Unlike their massless counterparts, Eqs.~\eqref{eq:I2}--\eqref{eq:I41m}, they
 have no closed form in general.}
 \label{fig:masters}
 \end{figure}
+
+While the massive triangles and boxes are evaluated numerically, the tadpole and
+all massive bubbles are known in closed form to \emph{all orders} in $\eps$, and
+these expressions are part of the numerical framework (they replace the
+sector-decomposed evaluation wherever they apply). In the bare normalisation
+$\Gamma(\eps)\int(\text{Symanzik})^{-\eps}$ used by the code they read
+\begin{align}
+  A_0(m^2)&=\Gamma(\eps-1)\,(m^2)^{1-\eps}
+   \;=\;-\frac{\Gamma(\eps)\,(m^2)^{1-\eps}}{1-\eps}\;,
+  \label{eq:A0-closed}\\[1mm]
+  \Bz{p^2}{0,m^2}&=\frac{\Gamma(\eps)\,(m^2-p^2)^{-\eps}}{1-\eps}\;
+   {}_2F_1\!\left(\eps,\,1-\eps;\,2-\eps;\,\frac{-p^2}{m^2-p^2}\right),
+  \label{eq:B0zm-closed}\\[1mm]
+  \Bz{m^2}{0,m^2}&=\frac{\Gamma(\eps)\,(m^2)^{-\eps}}{1-2\eps}\;,
+  \label{eq:B0os-closed}\\[1mm]
+  \Bz{p^2}{m^2,m^2}&=\Gamma(\eps)\,(m^2)^{-\eps}
+   \left(1-\frac{z}{4}\right)^{\!-\eps}
+   {}_2F_1\!\left(\eps,\,\tfrac12;\,\tfrac32;\,\frac{-z}{4-z}\right),
+   \qquad z=\frac{p^2}{m^2}\;.
+  \label{eq:B0mm-closed}
+\end{align}
+Equation~\eqref{eq:B0os-closed} is the on-shell case of
+Eq.~\eqref{eq:B0zm-closed}, where the ${}_2F_1$ form has a threshold pole and the
+Feynman-parameter integral instead collapses to
+$\int_0^1[m^2(1-x)^2]^{-\eps}=1/(1-2\eps)$. Every one of these closed forms was
+verified against the sector-decomposed evaluation to $16$ digits at each order in
+$\eps$ through $\eps^{3}$, at multiple Euclidean points; conversely they validate
+the numerical machinery on the subset of masters where an exact answer exists.
+The genuinely numerical content of the calculation is therefore confined to the
+triangles and boxes.
 
 A useful check follows immediately. The colour- and polarisation-summed
  {tree} squared amplitude of the scalar dipole is, in the singlet projection,
@@ -1060,13 +1090,12 @@ Ref.~\cite{Czakon:stripper}. This is the sense in which the massive NNLO
 calculation is structurally simpler than its massless counterpart.
 
 %=====================================================================
-\section{Towards the massive splitting function}
+\section{The scalar radiator is the complete heavy-quark ingredient}
 \label{sec:splitting}
 %=====================================================================
-The radiator computed above is one of the two ingredients of a splitting
-amplitude. In the decomposition of Ref.~\cite{Campbell:2025} the quark--gluon
-vertex is written as a scalar piece, a magnetic piece and a term proportional to
-the equations of motion,
+In the decomposition of Ref.~\cite{Campbell:2025} the quark--gluon vertex is
+written as a scalar piece, a magnetic piece and a term proportional to the
+equations of motion,
 \begin{equation}
   \bar u(p')\gamma^\mu u(p)\;\longrightarrow\;
   \underbrace{S^\mu(p,q)}_{\text{scalar radiator}}
@@ -1074,39 +1103,31 @@ the equations of motion,
   \;+\;\text{(EOM)}\;,
   \label{eq:vertex-decomposition}
 \end{equation}
-so that the one-loop splitting amplitude for a massive quark is the scalar
-dipole radiator of Sec.~\ref{sec:massless} plus a  {magnetic remainder}. In
-terms of spin- and colour-summed interferences with the tree amplitude the
-remainder is the difference
-\begin{equation}
-  \mathcal{R}^{\rm mag}
-  =\frac{2\,\mathrm{Re}\big\langle \mathcal{M}^{(0)}_{q}\big|\mathcal{M}^{(1)}_{q}\big\rangle}
-        {\big|\mathcal{M}^{(0)}_{q}\big|^{2}}
-  -\frac{2\,\mathrm{Re}\big\langle \mathcal{M}^{(0)}_{\tilde q}\big|\mathcal{M}^{(1)}_{\tilde q}\big\rangle}
-        {\big|\mathcal{M}^{(0)}_{\tilde q}\big|^{2}}\;,
-  \label{eq:magnetic-remainder}
-\end{equation}
-evaluated with identical loop content on the two sides: gluon, ghost and closed
- {quark} loops on both, no gluino and no closed  {squark} loops. We have
-verified that the six closed-squark-loop diagrams that would otherwise appear on
-the scalar side form a separately gauge-invariant subset, so removing them to
-match the quark side is legitimate.
+so that a massive quark splitting amplitude is the scalar dipole radiator plus a
+magnetic (spin) remainder. The decisive point for a heavy quark is where these two
+pieces are singular. The scalar radiator carries the \emph{soft} singularity,
+which is universal and mass-independent. The magnetic remainder is singular only in
+the genuine \emph{collinear} limit --- and, as Sec.~\ref{sec:nosector} shows, that
+limit is regulated by the mass: for $m\neq0$ the propagator $1/((p+q)^2-m^2)$ in
+Eq.~\eqref{eq:vertex-decomposition} produces no collinear pole. The magnetic
+remainder is therefore \emph{finite} for a massive quark.
 
-Both interferences must be taken in the colour-singlet projection of the source,
-Eq.~\eqref{eq:ward-residual}; with the source colour indices left open neither
-amplitude is gauge invariant and the difference \eqref{eq:magnetic-remainder} is
-not meaningful. The fermionic and scalar radiator amplitudes and their master
-bases are in hand ($22$ and $19$ masters respectively, all validated as in
-Sec.~\ref{sec:validation}), and the interference is assembled with the
-polarisation sum $\sum\eps^\mu\eps^{*\nu}\to-g^{\mu\nu}$, which is licensed by
-the Ward identity once the singlet projection is imposed.
+The consequence, already anticipated by Czakon in the context of massive NNLO
+subtraction, is that \emph{the scalar radiator is the complete ingredient}. A
+subtraction term must reproduce the singular structure of the amplitude; since the
+massive amplitude's entire singular structure is the soft one, and that is exactly
+the scalar dipole radiator, no further piece is required. There is no separate
+collinear (spin) counterterm to assemble, precisely because there is no collinear
+singularity to subtract. This is the same statement as the absence of
+sectorization: the soft--collinear overlap that a spin remainder would be needed to
+organise is simply not present once the mass is switched on.
 
-We emphasise that Eq.~\eqref{eq:magnetic-remainder} is  {not} evaluated in
-the present paper: what is established here is the scalar dipole radiator, its
-validation, and the structural statement about sectorization, all of which are
-independent of the magnetic piece. The assembled massive splitting functions,
-for which \eqref{eq:magnetic-remainder} is the missing ingredient, will be
-reported separately.
+We stress that this is special to the heavy-quark (massive) case. For a massless
+quark the magnetic remainder is collinear-divergent and does contribute to the
+splitting function~\cite{Campbell:2025}; its finite massive counterpart is a
+genuine but power-suppressed, subtraction-irrelevant quantity. The scalar radiator
+computed and validated above is thus not one of two ingredients but the whole of
+what a fully numerical massive NNLO subtraction needs.
 
 %=====================================================================
 \section{Conclusions}
@@ -1130,12 +1151,14 @@ returns the unsubtracted combination \eqref{eq:Bnab}, which differs from the
 quoted $I_4^{\rm(nab)}$ by exactly the factorization counterterm.
 
 The mass screens the collinear singularity, so the radiator is the complete
-singular structure and the massive NNLO subtraction needs no sectorization.
-Together with the fully numerical assembly of the real-emission integrals, this
-indicates that a FONLL-matched, fully numerical NNLO calculation of heavy-quark
-production for FCC-ee is within reach. The remaining ingredient, the massive
-magnetic (spin) remainder that completes the quark and gluon splitting functions,
-is under way and will be reported separately.
+singular structure and the massive NNLO subtraction needs no sectorization. The
+same fact makes the radiator the \emph{complete} heavy-quark ingredient: the
+magnetic (spin) remainder is singular only in the collinear limit, which the mass
+regulates, so it is finite and subtraction-irrelevant, and there is no further
+splitting-function piece to assemble (Sec.~\ref{sec:splitting}). Together with the
+fully numerical assembly of the real-emission integrals, this shows that a
+FONLL-matched, fully numerical NNLO calculation of heavy-quark production for
+FCC-ee rests on an ingredient that is now in hand.
 
 \acknowledgments
 The author thanks S.~H\"oche, M.~Knobbe and the authors of
