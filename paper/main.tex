@@ -448,8 +448,8 @@ is the reason the surviving gauge-invariant set is as small as it is.
 
 \begin{figure}[htbp]
 \centering
-\begin{tabular}{cccc}
-\begin{tikzpicture}[baseline=(current bounding box.center),scale=0.72,every node/.style={transform shape}]
+\begin{tabular}{ccc}
+\begin{tikzpicture}[baseline=(current bounding box.center),scale=0.82,every node/.style={transform shape}]
 \begin{feynman}
   \vertex [blobv] (H) at (0,0) {};
   \vertex [dot] (a) at (1.05,0.72) {};  \vertex [dot] (c) at (2.30,0.72) {};
@@ -459,18 +459,7 @@ is the reason the surviving gauge-invariant set is as small as it is.
     (c) -- [gluon] (b), (H) -- [charged scalar] (b), (b) -- [charged scalar] (ok), (a) -- [gluon] (og), };
 \end{feynman}\end{tikzpicture}
 &
-\begin{tikzpicture}[baseline=(current bounding box.center),scale=0.72,every node/.style={transform shape}]
-\begin{feynman}
-  \vertex [blobv] (H) at (0,0) {};
-  \vertex [dot] (a) at (1.0,0.75) {};  \vertex [dot] (b) at (1.0,-0.75) {};
-  \vertex [dot] (c) at (2.2,-0.75) {};
-  \vertex (oi) at (3.3,1.15);  \vertex (ok) at (3.3,-1.15);  \vertex (og) at (3.3,-0.30);
-  \diagram*{ (H) -- [charged scalar] (a), (H) -- [charged scalar] (b), (a) -- [gluon] (c),
-    (a) -- [charged scalar, out=30, in=150] (oi), (b) -- [charged scalar] (c),
-    (c) -- [charged scalar] (ok), (c) -- [gluon] (og), };
-\end{feynman}\end{tikzpicture}
-&
-\begin{tikzpicture}[baseline=(current bounding box.center),scale=0.72,every node/.style={transform shape}]
+\begin{tikzpicture}[baseline=(current bounding box.center),scale=0.82,every node/.style={transform shape}]
 \begin{feynman}
   \vertex [blobv] (H) at (0,0) {};
   \vertex [dot] (a) at (0.85,0.62) {};  \vertex [dot] (b) at (0.85,-0.62) {};
@@ -481,7 +470,7 @@ is the reason the surviving gauge-invariant set is as small as it is.
     (b) -- [charged scalar] (ok), };
 \end{feynman}\end{tikzpicture}
 &
-\begin{tikzpicture}[baseline=(current bounding box.center),scale=0.72,every node/.style={transform shape}]
+\begin{tikzpicture}[baseline=(current bounding box.center),scale=0.82,every node/.style={transform shape}]
 \begin{feynman}
   \vertex [blobv] (H) at (0,0) {};
   \vertex [dot] (sg) at (1.6,0.80) {};  \vertex [dot] (b) at (1.15,-0.80) {};
@@ -490,26 +479,26 @@ is the reason the surviving gauge-invariant set is as small as it is.
     (sg) -- [gluon] (b), (H) -- [charged scalar] (b), (b) -- [charged scalar] (ok), };
 \end{feynman}\end{tikzpicture}
 \\[1mm]
-\footnotesize (a) box & \footnotesize (b) crossed box & \footnotesize (c) factorizable & \footnotesize (d) seagull
+\footnotesize (a) box & \footnotesize (b) factorizable & \footnotesize (c) seagull
 \end{tabular}
 \caption{Box-type diagrams contributing to the scalar--scalar interference at one
 loop --- the massive analogue of Fig.~14 of Ref.~\cite{Campbell:2025}. Dashed
 arrowed lines are charged scalars, coiled lines gluons, the grey blob the hard
-production vertex. A gauge-invariant set is formed by the box (a), crossed box
-(b), the factorizable hard-vertex correction (c), and the scalar seagull (d).
-The single colour decomposition $2\,\Top{i}^a\Top{i}^b=if^{abc}\Top{i}^c
-+\{\Top{}^a,\Top{}^b\}_i$ splits their sum into the abelian
+production vertex. A gauge-invariant set is formed by the box (a), the factorizable
+hard-vertex correction (b) and the scalar seagull (c); crossing-symmetric partners
+are understood. The single colour decomposition $2\,\Top{i}^a\Top{i}^b
+=if^{abc}\Top{i}^c+\{\Top{}^a,\Top{}^b\}_i$ splits their sum into the abelian
 ($\{\Top{}^a,\Top{}^b\}$, $13$ masters) and non-abelian ($f^{abc}$, $14$ masters)
 radiators. The topology of Ref.~\cite{Campbell:2025} with the gluon emitted off a
-colour-charged spectator $l\neq i,k$ is absent here, as the source produces only
+colour-charged spectator $l\neq i,k$ does not arise, as the source produces only
 the $i,k$ dipole.}
 \label{fig:boxes}
 \end{figure}
 
 The genuinely one-loop, non-factorizable structure resides in the box-type
 diagrams, the massive analogue of Fig.~14 of Ref.~\cite{Campbell:2025}, shown in
-Fig.~\ref{fig:boxes}. A gauge-invariant set is formed by the box (a), crossed box
-(b), the factorizable hard-vertex correction (c) and the scalar seagull (d).
+Fig.~\ref{fig:boxes}. A gauge-invariant set is formed by the box (a), the factorizable hard-vertex
+correction (b) and the scalar seagull (c).
 Ref.~\cite{Campbell:2025} additionally includes a diagram in which the gluon is
 emitted off a colour-charged spectator $l\neq i,k$; for the pure $i,k$ dipole
 computed here there is no spectator, so that topology does not arise. The
