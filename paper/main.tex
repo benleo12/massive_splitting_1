@@ -9,9 +9,9 @@
 \usepackage{xcolor}
 \usepackage{jheppub}
 
-%---------------------------------------------------------------------
+% --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  -- 
 % Feynman-diagram vocabulary (plain TikZ; compiles under pdfLaTeX)
-%---------------------------------------------------------------------
+% --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  -- 
 \tikzfeynmanset{
   every diagram/.style   ={large},
   blobv/.style           ={/tikz/fill=gray!35,/tikz/draw=black,/tikz/circle,
@@ -49,7 +49,7 @@ a fully numerical route to NNLO subtraction without sectorization}
 \emailAdd{...}
 
 \abstract{We compute the one-loop scalar dipole radiator for the emission of a
-gluon from a pair of \emph{massive} colour charges, the massive counterpart of
+gluon from a pair of  {massive} colour charges, the massive counterpart of
 the box-type contributions that organise the recent decomposition of QCD
 splitting functions beyond kinematical limits. The calculation is fully
 numerical: every master integral is generated once by sector decomposition with
@@ -89,7 +89,7 @@ scattering amplitudes in unresolved limits, together with the subtraction terms
 built from them.
 
 Recently a systematic decomposition of the QCD splitting functions into
-\emph{scalar dipole radiators} and \emph{pure splitting remainders} was
+ {scalar dipole radiators} and  {pure splitting remainders} was
 introduced~\cite{Campbell:2025}, valid to second order in the strong coupling and
 formulated without taking any soft or collinear limit. The universal,
 semi-classical part of every splitting function is carried by scalar QCD
@@ -114,7 +114,7 @@ the two masses independent, so that both the equal-mass ($m_i=m_k$) and the
 unequal-mass ($m_i\neq m_k$) configurations are covered, the latter being
 relevant for the interference of different heavy flavours.
 
-Our calculation is \emph{fully numerical}. The required master integrals are
+Our calculation is  {fully numerical}. The required master integrals are
 evaluated by sector decomposition~\cite{pySecDec} and are compiled once with the
 invariants and the masses declared as real runtime parameters. This mirrors, on
 the virtual side, the fully numerical assembly of real-emission integrals in
@@ -177,7 +177,7 @@ to separate abelian from purely non-abelian colour structures.
 \paragraph{Gauge structure and the colour-singlet projection.}
 The radiator is generated from a colour source that injects the two charged
 scalar lines. If the two colour indices of that source are left open, the
-amplitude is \emph{not} gauge invariant: replacing $\eps^\mu(q)\to q^\mu$ leaves
+amplitude is  {not} gauge invariant: replacing $\eps^\mu(q)\to q^\mu$ leaves
 \begin{equation}
   q_\mu\mathcal{M}^{\mu}\;\propto\;
   T^a_{c_ic_j}\delta_{c_kc_l}-\delta_{c_ic_j}T^a_{c_kc_l}\;,
@@ -229,7 +229,7 @@ does not vanish. All colour sums below are performed with the singlet projector.
 \end{tabular}
 \caption{The leading-order scalar dipole radiator: emission of a gluon of
 momentum $q$ from a dipole of massive charged scalars $p_i$, $p_k$ produced at
-the hard vertex (grey blob). These are the only two tree topologies --- the
+the hard vertex (grey blob). These are the only two tree topologies  --  the
 scalar seagull requires two gluons and therefore does not contribute to
 single-gluon emission. Their sum defines the tree current
 $S^\mu(p_i,q)+S^\mu(p_k,q)$ of Eq.~\eqref{eq:scalarcurrent}.}
@@ -448,151 +448,79 @@ is the reason the surviving gauge-invariant set is as small as it is.
 
 \begin{figure}[htbp]
 \centering
-\begin{tabular}{ccc}
-\begin{tikzpicture}[baseline=(current bounding box.center),scale=0.95,every node/.style={transform shape}]
+\begin{tabular}{cccc}
+\begin{tikzpicture}[baseline=(current bounding box.center),scale=0.72,every node/.style={transform shape}]
 \begin{feynman}
-  \vertex [blobv] (v5) at (0,0) {};
-  \vertex [dot] (v6) at (1.25,0.95) {};
-  \vertex [dot] (v8) at (1.25,-0.95) {};
-  \vertex [dot] (v7) at (2.45,0) {};
-  \vertex (oi) at (2.40,1.85);
-  \vertex (ok) at (2.40,-1.85);
-  \vertex (og) at (3.75,0);
-  \diagram*{
-    (v5) -- [charged scalar] (v6),
-    (v5) -- [charged scalar] (v8),
-    (v6) -- [gluon] (v7),
-    (v8) -- [gluon] (v7),
-    (v6) -- [charged scalar] (oi),
-    (v8) -- [charged scalar] (ok),
-    (v7) -- [gluon] (og),
-  };
-\end{feynman}
-\end{tikzpicture}
+  \vertex [blobv] (H) at (0,0) {};
+  \vertex [dot] (a) at (1.05,0.72) {};  \vertex [dot] (c) at (2.30,0.72) {};
+  \vertex [dot] (b) at (1.55,-0.80) {};
+  \vertex (oi) at (3.3,1.10);  \vertex (ok) at (3.3,-1.15);  \vertex (og) at (1.55,1.55);
+  \diagram*{ (H) -- [charged scalar] (a), (a) -- [charged scalar] (c), (c) -- [charged scalar] (oi),
+    (c) -- [gluon] (b), (H) -- [charged scalar] (b), (b) -- [charged scalar] (ok), (a) -- [gluon] (og), };
+\end{feynman}\end{tikzpicture}
 &
-\begin{tikzpicture}[baseline=(current bounding box.center),scale=0.95,every node/.style={transform shape}]
+\begin{tikzpicture}[baseline=(current bounding box.center),scale=0.72,every node/.style={transform shape}]
 \begin{feynman}
-  \vertex [blobv] (v5) at (0,0) {};
-  \vertex [dot] (v6) at (1.25,0.95) {};
-  \vertex [dot] (v7) at (1.25,-0.95) {};
-  \vertex [dot] (v8) at (2.45,0) {};
-  \vertex (oi) at (2.40,1.85);
-  \vertex (og) at (2.40,-1.85);
-  \vertex (ok) at (3.75,0);
-  \diagram*{
-    (v5) -- [charged scalar] (v6),
-    (v5) -- [charged scalar] (v7),
-    (v6) -- [gluon] (v8),
-    (v7) -- [charged scalar] (v8),
-    (v6) -- [charged scalar] (oi),
-    (v7) -- [gluon] (og),
-    (v8) -- [charged scalar] (ok),
-  };
-\end{feynman}
-\end{tikzpicture}
+  \vertex [blobv] (H) at (0,0) {};
+  \vertex [dot] (a) at (1.0,0.75) {};  \vertex [dot] (b) at (1.0,-0.75) {};
+  \vertex [dot] (c) at (2.2,-0.75) {};
+  \vertex (oi) at (3.3,1.15);  \vertex (ok) at (3.3,-1.15);  \vertex (og) at (3.3,-0.30);
+  \diagram*{ (H) -- [charged scalar] (a), (H) -- [charged scalar] (b), (a) -- [gluon] (c),
+    (a) -- [charged scalar, out=30, in=150] (oi), (b) -- [charged scalar] (c),
+    (c) -- [charged scalar] (ok), (c) -- [gluon] (og), };
+\end{feynman}\end{tikzpicture}
 &
-\begin{tikzpicture}[baseline=(current bounding box.center),scale=0.95,every node/.style={transform shape}]
+\begin{tikzpicture}[baseline=(current bounding box.center),scale=0.72,every node/.style={transform shape}]
 \begin{feynman}
-  \vertex [blobv] (v5) at (0,0) {};
-  \vertex [dot] (v7) at (1.25,0.95) {};
-  \vertex [dot] (v8) at (1.25,-0.95) {};
-  \vertex [dot] (v6) at (2.45,0) {};
-  \vertex (og) at (2.40,1.85);
-  \vertex (ok) at (2.40,-1.85);
-  \vertex (oi) at (3.75,0);
-  \diagram*{
-    (v5) -- [charged scalar] (v7),
-    (v5) -- [charged scalar] (v8),
-    (v7) -- [charged scalar] (v6),
-    (v8) -- [gluon] (v6),
-    (v7) -- [gluon] (og),
-    (v8) -- [charged scalar] (ok),
-    (v6) -- [charged scalar] (oi),
-  };
-\end{feynman}
-\end{tikzpicture}
+  \vertex [blobv] (H) at (0,0) {};
+  \vertex [dot] (a) at (0.85,0.62) {};  \vertex [dot] (b) at (0.85,-0.62) {};
+  \vertex [dot] (e) at (2.15,0.90) {};
+  \vertex (oi) at (3.2,1.25);  \vertex (ok) at (3.2,-1.05);  \vertex (og) at (3.2,0.35);
+  \diagram*{ (H) -- [charged scalar] (a), (H) -- [charged scalar] (b), (a) -- [gluon] (b),
+    (a) -- [charged scalar] (e), (e) -- [charged scalar] (oi), (e) -- [gluon] (og),
+    (b) -- [charged scalar] (ok), };
+\end{feynman}\end{tikzpicture}
+&
+\begin{tikzpicture}[baseline=(current bounding box.center),scale=0.72,every node/.style={transform shape}]
+\begin{feynman}
+  \vertex [blobv] (H) at (0,0) {};
+  \vertex [dot] (sg) at (1.6,0.80) {};  \vertex [dot] (b) at (1.15,-0.80) {};
+  \vertex (oi) at (3.1,1.15);  \vertex (ok) at (3.1,-1.15);  \vertex (og) at (3.1,0.55);
+  \diagram*{ (H) -- [charged scalar] (sg), (sg) -- [charged scalar] (oi), (sg) -- [gluon] (og),
+    (sg) -- [gluon] (b), (H) -- [charged scalar] (b), (b) -- [charged scalar] (ok), };
+\end{feynman}\end{tikzpicture}
 \\[1mm]
-\footnotesize (a) & \footnotesize (b) & \footnotesize (c)
+\footnotesize (a) box & \footnotesize (b) crossed box & \footnotesize (c) factorizable & \footnotesize (d) seagull
 \end{tabular}
-
-\vspace{5mm}
-
-\begin{tabular}{cc}
-\begin{tikzpicture}[baseline=(current bounding box.center),scale=0.95,every node/.style={transform shape}]
-\begin{feynman}
-  \vertex [blobv] (v5) at (0,0) {};
-  \vertex [dot] (v8) at (1.15,0.85) {};
-  \vertex [dot] (v7) at (1.15,-0.85) {};
-  \vertex [dot] (v6) at (2.45,1.35) {};
-  \vertex (oi) at (3.60,1.85);
-  \vertex (og) at (3.60,0.75);
-  \vertex (ok) at (2.45,-1.60);
-  \diagram*{
-    (v5) -- [charged scalar] (v8),
-    (v5) -- [charged scalar] (v7),
-    (v7) -- [gluon] (v8),
-    (v8) -- [charged scalar] (v6),
-    (v6) -- [charged scalar] (oi),
-    (v6) -- [gluon] (og),
-    (v7) -- [charged scalar] (ok),
-  };
-\end{feynman}
-\end{tikzpicture}
-&
-\begin{tikzpicture}[baseline=(current bounding box.center),scale=0.95,every node/.style={transform shape}]
-\begin{feynman}
-  \vertex [blobv] (v5) at (0,0) {};
-  \vertex [dot] (v6) at (1.15,0.85) {};
-  \vertex [dot] (v8) at (1.15,-0.85) {};
-  \vertex [dot] (v7) at (2.45,-1.35) {};
-  \vertex (oi) at (2.45,1.60);
-  \vertex (og) at (3.60,-0.75);
-  \vertex (ok) at (3.60,-1.85);
-  \diagram*{
-    (v5) -- [charged scalar] (v6),
-    (v5) -- [charged scalar] (v8),
-    (v6) -- [gluon] (v8),
-    (v8) -- [charged scalar] (v7),
-    (v7) -- [gluon] (og),
-    (v7) -- [charged scalar] (ok),
-    (v6) -- [charged scalar] (oi),
-  };
-\end{feynman}
-\end{tikzpicture}
-\\[1mm]
-\footnotesize (d) & \footnotesize (e)
-\end{tabular}
-\caption{The five one-loop topologies that make up the massive \emph{non-abelian}
-scalar dipole radiator computed in this work, labelled by their index in the
-generated diagram set. Panel (a) is the box in which the emitted gluon is
-attached at the triple-gluon vertex; (b) and (c) are the two orientations of the
-box in which it is emitted from a scalar line inside the loop; (d) and (e) are
-the two orientations of the triangle correction to the hard production vertex
-with the gluon emitted from an external leg. Diagrams (b), (c) and (d), (e) are
-combined pairwise with the colour projection
-$T^aT^bT^c\to\tfrac{i}{2}f^{bcd}T^aT^d$ that isolates the $f^{abc}$ structure.
-All internal scalar lines carry the mass $m$; the loop momentum flows around the
-closed circuit in each panel.}
+\caption{Box-type diagrams contributing to the scalar--scalar interference at one
+loop --- the massive analogue of Fig.~14 of Ref.~\cite{Campbell:2025}. Dashed
+arrowed lines are charged scalars, coiled lines gluons, the grey blob the hard
+production vertex. A gauge-invariant set is formed by the box (a), crossed box
+(b), the factorizable hard-vertex correction (c), and the scalar seagull (d).
+The single colour decomposition $2\,\Top{i}^a\Top{i}^b=if^{abc}\Top{i}^c
++\{\Top{}^a,\Top{}^b\}_i$ splits their sum into the abelian
+($\{\Top{}^a,\Top{}^b\}$, $13$ masters) and non-abelian ($f^{abc}$, $14$ masters)
+radiators. The topology of Ref.~\cite{Campbell:2025} with the gluon emitted off a
+colour-charged spectator $l\neq i,k$ is absent here, as the source produces only
+the $i,k$ dipole.}
 \label{fig:boxes}
 \end{figure}
 
 The genuinely one-loop, non-factorizable structure resides in the box-type
-diagrams, Fig.~14 of Ref.~\cite{Campbell:2025}. A gauge-invariant set is obtained
-by combining the box and seagull topologies with two factorizable members: a
-correction dressing the hard production vertex, and a diagram in which the gluon
-is emitted from a colour-charged spectator $l\neq i,k$. The topologies we
-actually evaluate in the massive case are shown in Fig.~\ref{fig:boxes}; for a
-dipole there is no spectator, so the second factorizable member is absent and its
-role is played by the triangle corrections of Fig.~\ref{fig:boxes}(d), (e). The
-hard-vertex correction evaluates to
+diagrams, the massive analogue of Fig.~14 of Ref.~\cite{Campbell:2025}, shown in
+Fig.~\ref{fig:boxes}. A gauge-invariant set is formed by the box (a), crossed box
+(b), the factorizable hard-vertex correction (c) and the scalar seagull (d).
+Ref.~\cite{Campbell:2025} additionally includes a diagram in which the gluon is
+emitted off a colour-charged spectator $l\neq i,k$; for the pure $i,k$ dipole
+computed here there is no spectator, so that topology does not arise. The
+hard-vertex correction (c) evaluates to
 \begin{equation}
   I_{h,f}(Q^2,t)=-\frac{g_s^2}{16\pi^2}\,\Top{i}^b\Top{k}^b\,
   \Big(\big(2Q^2-t\big)\,\Ihat_3^{2m}(Q^2,t)+\Ihat_2(Q^2)-\Ihat_2(t)\Big)\;,
   \label{eq:hardvertex}
 \end{equation}
-whose $t\to0$ limit is $2Q^2\Ihat_3^{1m}(Q^2)+\Ihat_2(Q^2)$, the spectator-emission
-case. Using Eq.~\eqref{eq:colour-identity} the factorization counterterm splits
-into
+whose $t\to0$ limit is $2Q^2\Ihat_3^{1m}(Q^2)+\Ihat_2(Q^2)$. Using
+Eq.~\eqref{eq:colour-identity} the factorization counterterm splits into
 \begin{align}
   C^{\rm(nab)}(s,t,u)&=\frac{i g_s^3}{16\pi^2}f^{abc}\,\Top{i}^b\Top{k}^c\,
     \Big[\,2s\,\Ihat_3^{1m}(s)+\Ihat_2(s)\,\Big]
@@ -620,7 +548,7 @@ part of the box-type set has dipole structure and reads~\cite{Campbell:2025}
 It matters for what follows to be precise about which object a direct
 diagrammatic computation produces. Evaluating the box-type diagrams of
 Fig.~\ref{fig:boxes} and projecting onto the non-abelian colour structure yields
-the sum \emph{before} the counterterm \eqref{eq:ct-nab} is removed. Writing that
+the sum  {before} the counterterm \eqref{eq:ct-nab} is removed. Writing that
 unsubtracted sum as
 \begin{equation}
 \begin{split}
@@ -795,7 +723,7 @@ have no closed form in general.}
 \end{figure}
 
 A useful check follows immediately. The colour- and polarisation-summed
-\emph{tree} squared amplitude of the scalar dipole is, in the singlet projection,
+ {tree} squared amplitude of the scalar dipole is, in the singlet projection,
 \begin{equation}
   \big|\mathcal{M}^{(0)}_{\tilde q}\big|^{2}
   =\frac{-16\,\Gram}{3\,(m^2-t)^2\,(m^2-u)^2}\;,
@@ -825,7 +753,7 @@ App.~\ref{app:coefficients}.
 %=====================================================================
 The masters are evaluated by sector decomposition with
 \textsc{pySecDec}~\cite{pySecDec}. Each master is generated once with the
-invariants $(s,t,u)$ and the masses $(m_i^2,m_k^2)$ declared as \emph{real
+invariants $(s,t,u)$ and the masses $(m_i^2,m_k^2)$ declared as  {real
 runtime parameters} and compiled to a shared library. A phase-space point is then
 a single quasi-Monte-Carlo call into the compiled library. The dominant cost is
 the one-time compilation, a few minutes for the full basis; each subsequent point
@@ -889,7 +817,7 @@ quasi-Monte-Carlo precision.
 The non-abelian sector admits a sharper test, because its massless limit is known
 in closed form. Dividing the $m\to0$ limit of our massive non-abelian radiator by
 the unsubtracted massless combination $\mathcal{B}^{\rm(nab)}$ of
-Eq.~\eqref{eq:Bnab} gives a ratio that is \emph{independent of the kinematics},
+Eq.~\eqref{eq:Bnab} gives a ratio that is  {independent of the kinematics},
 \begin{equation}
   \frac{\mathcal{M}^{\rm nab}_{m\to0}}{\mathcal{B}^{\rm(nab)}}
   =-16\pi^2 i\,\big(1+0.5675\,\eps+\dots\big)\;,
@@ -915,7 +843,7 @@ transversality of the emitted gluon requires
 \end{equation}
 which is the statement that the radiator carries the dipole structure
 $p_i^\mu/(t-m^2)-p_k^\mu/(u-m^2)$. We have verified Eq.~\eqref{eq:ward-check}
-\emph{as an exact algebraic identity} in the reduced amplitude: the combination
+ {as an exact algebraic identity} in the reduced amplitude: the combination
 vanishes coefficient by coefficient on the master integrals, with the masses and
 invariants kept symbolic, so it holds at every kinematic point rather than
 numerically at sampled ones. This is a third, independent check, complementary to
@@ -956,7 +884,7 @@ We map our invariants onto theirs by $p_i=p_i$, $p_j=p_k$, $q=q$, i.e.
   p_jq=\frac{u-m^2}{2}\;,
   \label{eq:bcmmap}
 \end{equation}
-and construct genuinely soft, \emph{physical} configurations by fixing the two
+and construct genuinely soft,  {physical} configurations by fixing the two
 massive emitters exactly on shell and scaling the emitted gluon as $q=w\,n$ with
 $n$ light-like. Then $s$ is independent of $w$ while $t-m^2$ and $u-m^2$ vanish
 linearly. Soft factorisation predicts, for the coefficient of $p_i\!\cdot\!\eps$,
@@ -1002,8 +930,8 @@ libraries at physical kinematics; column four is the BCM prediction
 $32\pi^2/(p_i\!\cdot\!q)$, which follows from $R^{(-2)}_{ij}=-\tfrac12$ together
 with the single normalisation constant $N_0=-64\pi^2 i$. Both are purely
 imaginary; the tabulated entries are $\mathrm{Im}$. One constant is fixed once and
-for all --- and it is independently $4\times$ the massless normalisation
-$-16\pi^2 i$ found against Ref.~\cite{Campbell:2025} --- after which the remaining
+for all  --  and it is independently $4\times$ the massless normalisation
+$-16\pi^2 i$ found against Ref.~\cite{Campbell:2025}  --  after which the remaining
 eight entries are absolute predictions, reproduced to $11$--$13$ significant
 figures. The residual deviations are at the level of the quasi-Monte-Carlo
 uncertainty of the masters.}
@@ -1037,7 +965,7 @@ is disentangled by phase-space sectorization.
 For massive partons the situation simplifies, but in a way that requires care.
 The mass regulates the collinear region: a propagator $1/(p^2-m^2)$ produces no
 collinear $1/\eps$ pole as $p^2\to m^2$. We find that this screening acts
-\emph{entirely on the abelian sector}. Decomposing the complete radiator by
+ {entirely on the abelian sector}. Decomposing the complete radiator by
 colour structure we obtain, numerically,
 \begin{equation}
   \mathcal{M}^{(1)}\Big|^{\rm abelian}_{\eps^{-2}}=0\;,
@@ -1046,20 +974,20 @@ colour structure we obtain, numerically,
   \label{eq:noeps2}
 \end{equation}
 the latter purely imaginary, as required by the $if^{abc}$ colour structure. The
-abelian double pole, which in the massless theory arises from the \emph{overlap}
+abelian double pole, which in the massless theory arises from the  {overlap}
 of the soft and collinear regions, is switched off by the mass. What survives is
 the non-abelian double pole of the one-loop soft current, which is universal and
-already known in closed form --- and which Sec.~\ref{sec:bcm} shows we reproduce
+already known in closed form  --  and which Sec.~\ref{sec:bcm} shows we reproduce
 exactly.
 
 This distinction is the essential point. Sectorization exists to disentangle the
-soft--collinear \emph{overlap}; it is not needed for a pure soft singularity.
+soft--collinear  {overlap}; it is not needed for a pure soft singularity.
 Since the massive amplitude retains only the latter, the overlap is absent and no
 phase-space sectorization is required.
 
 Both features are corroborated by Ref.~\cite{BCM}. First, the one-loop massive
 soft current \eqref{eq:softcurrent} is purely non-abelian, with no abelian
-contribution --- precisely why the double pole we find is confined to the
+contribution  --  precisely why the double pole we find is confined to the
 non-abelian structure and is purely imaginary. Second, for both emitters massive,
 Ref.~\cite{BCM} states explicitly that collinear singularities are regularised
 and do not lead to poles in $\eps$, in agreement with Table~\ref{tab:collinear}.
@@ -1069,7 +997,7 @@ The statement can be exhibited directly. We fix $s=-3$, $u=-2$ and drive the
 amplitude into the collinear region $t\to0$ at two values of the mass.
 Table~\ref{tab:collinear} lists the $\eps^{-1}$ coefficient of the abelian
 amplitude together with its increment between successive points. A genuine
-collinear singularity produces a \emph{constant} increment per fixed ratio of
+collinear singularity produces a  {constant} increment per fixed ratio of
 $|t|$, i.e.\ logarithmic growth; a mass-regulated amplitude approaches a finite
 limit, so the increments must die away.
 
@@ -1078,8 +1006,8 @@ limit, so the increments must die away.
 \caption{Collinear scan of the abelian massive amplitude at $s=-3$, $u=-2$. For
 $m^2=1$ the increments collapse geometrically and the coefficient converges to a
 finite limit $\approx2.94$. For $m^2=0.01$, with $|t|\gtrsim m^2$ over most of
-the range, the increments instead approach a constant --- the signature of
-logarithmic collinear growth --- and the coefficient grows by nearly two orders
+the range, the increments instead approach a constant  --  the signature of
+logarithmic collinear growth  --  and the coefficient grows by nearly two orders
 of magnitude. The mass cuts the collinear region off at $|t|\sim m^2$.}
 \label{tab:collinear}
 \begin{tabular}{lcccc}
@@ -1088,7 +1016,7 @@ of magnitude. The mass cuts the collinear region off at $|t|\sim m^2$.}
 \cmidrule(lr){2-3}\cmidrule(lr){4-5}
 $t$ & $\eps^{-1}$ & $\Delta$ & $\eps^{-1}$ & $\Delta$\\
 \midrule
-$-1$      & $1.4730$ & ---     & $8.199$ & ---\\
+$-1$      & $1.4730$ &  --      & $8.199$ &  -- \\
 $-0.3$    & $2.2662$ & $0.793$ & $26.71$ & $18.5$\\
 $-0.1$    & $2.6782$ & $0.412$ & $75.28$ & $48.6$\\
 $-0.03$   & $2.8602$ & $0.182$ & $207.0$ & $131.7$\\
@@ -1129,12 +1057,12 @@ $(-2,-3,-1)$, $m_i^2=1$, $m_k^2=2$ & $0$ & $0.640$ & $-1.029$\\
 \noindent
 The two colour structures are stripped by different prefactors, so their relative
 normalisation is not fixed here. The statement that matters, and which is
-normalisation independent, is that the abelian double pole \emph{vanishes} while
+normalisation independent, is that the abelian double pole  {vanishes} while
 the non-abelian one does not.
 
 Since the scalar dipole radiator captures precisely the soft structure, and the
-soft structure is now the \emph{entire} singular structure, the massive one-loop
-splitting amplitude \emph{is} its scalar dipole radiator up to a finite,
+soft structure is now the  {entire} singular structure, the massive one-loop
+splitting amplitude  {is} its scalar dipole radiator up to a finite,
 spin-dependent remainder. The double-real and real--virtual massive contributions
 carry soft-only singularities and can be subtracted with a single soft
 counterterm, implemented as an additional Monte-Carlo channel sampled only to the
@@ -1158,7 +1086,7 @@ the equations of motion,
   \label{eq:vertex-decomposition}
 \end{equation}
 so that the one-loop splitting amplitude for a massive quark is the scalar
-dipole radiator of Sec.~\ref{sec:massless} plus a \emph{magnetic remainder}. In
+dipole radiator of Sec.~\ref{sec:massless} plus a  {magnetic remainder}. In
 terms of spin- and colour-summed interferences with the tree amplitude the
 remainder is the difference
 \begin{equation}
@@ -1170,7 +1098,7 @@ remainder is the difference
   \label{eq:magnetic-remainder}
 \end{equation}
 evaluated with identical loop content on the two sides: gluon, ghost and closed
-\emph{quark} loops on both, no gluino and no closed \emph{squark} loops. We have
+ {quark} loops on both, no gluino and no closed  {squark} loops. We have
 verified that the six closed-squark-loop diagrams that would otherwise appear on
 the scalar side form a separately gauge-invariant subset, so removing them to
 match the quark side is legitimate.
@@ -1184,7 +1112,7 @@ Sec.~\ref{sec:validation}), and the interference is assembled with the
 polarisation sum $\sum\eps^\mu\eps^{*\nu}\to-g^{\mu\nu}$, which is licensed by
 the Ward identity once the singlet projection is imposed.
 
-We emphasise that Eq.~\eqref{eq:magnetic-remainder} is \emph{not} evaluated in
+We emphasise that Eq.~\eqref{eq:magnetic-remainder} is  {not} evaluated in
 the present paper: what is established here is the scalar dipole radiator, its
 validation, and the structural statement about sectorization, all of which are
 independent of the magnetic piece. The assembled massive splitting functions,
@@ -1234,7 +1162,7 @@ We give the complete reduction of the massive radiator, so that the result can b
 reproduced, or the master integrals recomputed, independently. Everything below
 refers to the coefficient of $p_i\!\cdot\!\eps^*(q)$; the $p_k$ projection follows
 by $i\leftrightarrow k$, $t\leftrightarrow u$. The Gram-type determinant $\Gram$
-is defined in Eq.~\eqref{eq:gram}. The reduction leaves \emph{no} rational
+is defined in Eq.~\eqref{eq:gram}. The reduction leaves  {no} rational
 remainder: each amplitude is exactly a linear combination of the masters listed in
 Eqs.~\eqref{eq:basis-ab}--\eqref{eq:basis-nab}.
 
