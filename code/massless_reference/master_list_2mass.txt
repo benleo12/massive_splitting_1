@@ -1,0 +1,23 @@
+2-mass squark amplitude: 15 master integrals (two scales m1, m2; Q2 = s+t+u-m1^2-m2^2)
+FeynCalc PaVe arg convention.  m2->m1 collapses this set to the 13 one-mass masters.
+
+# Bubbles (6)
+B0_m1_0_m1   B0(m1^2; 0,   m1^2)        squark gen1 on shell
+B0_m2_0_m2   B0(m2^2; 0,   m2^2)        squark gen2 on shell
+B0_s_m1_m2   B0(s;    m1^2, m2^2)       s-channel, unequal masses
+B0_t_0_m1    B0(t;    0,   m1^2)
+B0_u_0_m2    B0(u;    0,   m2^2)
+B0_Q_m1_m2   B0(Q^2;  m1^2, m2^2)       Q-channel, unequal masses
+
+# Triangles (7)
+C0_0_m1_t    C0(0, m1^2, t;  m1^2, m1^2, 0)
+C0_0_m2_u    C0(0, m2^2, u;  m2^2, m2^2, 0)
+C0_0_s_Q_a   C0(0, s, Q^2;   m1^2, m1^2, m2^2)
+C0_0_s_Q_b   C0(0, s, Q^2;   m2^2, m2^2, m1^2)
+C0_m1_m2_s   C0(m1^2, m2^2, s;  m1^2, 0, m2^2)
+C0_m1_u_Q    C0(m1^2, u, Q^2;   m1^2, 0, m2^2)
+C0_m2_t_Q    C0(m2^2, t, Q^2;   m2^2, 0, m1^2)
+
+# Boxes (2)
+D0_a   D0(0,   u, m1^2, s;  m2^2, Q^2;  m2^2, m2^2, 0,    m1^2)
+D0_b   D0(m1^2, t, Q^2, s;  0,   m2^2;  m1^2, 0,   m1^2, m2^2)

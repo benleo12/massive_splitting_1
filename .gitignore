@@ -1,0 +1,17 @@
+# pySecDec build artifacts (regenerable via code/massive_1mass/validation/build_masters.sh)
+validation/m_*/
+**/m_*/
+*.so
+*.o
+# Mathematica dumps / caches
+*.mx
+__pycache__/
+*.pyc
+.DS_Store
+# LaTeX build
+*.aux
+*.log
+*.out
+*.synctex.gz
+# large intermediate (regenerable)
+ampRaw_quark_1mass_full.txt

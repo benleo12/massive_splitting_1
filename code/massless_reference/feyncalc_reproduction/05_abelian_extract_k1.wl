@@ -1,0 +1,13 @@
+PrependTo[$Path,"/tmp/fc93"]; $LoadAddOns={"FeynArts"}; $FeynCalcStartupMessages=False;
+Quiet[Get["FeynCalc`"]]; $FAVerbose=0;
+SetDirectory["/Users/user/Library/CloudStorage/Dropbox/LogMoments/LogdPhipT/splitting_1loop/collaborator_massless"];
+Get["/tmp/ab_sum.mx"];
+polk1=SPD[k1,Polarization[k2,-I]]; polk3=SPD[k3,Polarization[k2,-I]];
+abK1 = Coefficient[sum /. {polk3->0}, polk1];
+Print["abelian k1-coeff LC: ", LeafCount[abK1]];
+Print["color structures: ", Union[Cases[abK1,(SUNTF|SDF|SUNFDelta)[___],Infinity]] // Short[#,3]&];
+Print["B0 args: ", Union[Cases[abK1,B0[x__]:>{x},Infinity]]];
+Print["C0 args: ", Union[Cases[abK1,C0[x__]:>{x},Infinity]]];
+Print["D0 args: ", Union[Cases[abK1,D0[x__]:>{x},Infinity]]];
+DumpSave["/tmp/ab_coeffK1.mx", abK1];
+Print["saved"];

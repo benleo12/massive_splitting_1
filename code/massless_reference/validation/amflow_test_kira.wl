@@ -1,0 +1,10 @@
+Get["/Users/user/Library/Wolfram/Applications/AMFlow/AMFlow.m"];
+SetReductionOptions["IBPReducer" -> "Kira"];
+SetReducerOptions["ReductionMode" -> "FireFly"];
+AMFlowInfo["Family"] = bmm; AMFlowInfo["Loop"] = {l}; AMFlowInfo["Leg"] = {p1};
+AMFlowInfo["Conservation"] = {}; AMFlowInfo["Replacement"] = {p1^2 -> s};
+AMFlowInfo["Propagator"] = {l^2 - msq, (l + p1)^2 - msq};
+AMFlowInfo["Numeric"] = {s -> -3, msq -> 1}; AMFlowInfo["NThread"] = 4;
+sol = SolveIntegrals[{j[bmm, 1, 1]}, 30, 3];
+Print["AMFLOW_RESULT B0_s_mq_mq = ", sol];
+Quit[];
