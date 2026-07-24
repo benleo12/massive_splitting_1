@@ -68,7 +68,7 @@ the collinear region, so that the abelian double pole is absent and the singular
 structure of the massive radiator is purely soft. There is consequently no
 soft--collinear overlap to disentangle, the corresponding NNLO subtraction
 requires no phase-space sectorization, and the scalar radiator is the complete
-subtraction ingredient for a heavy quark --- the spin-dependent remainder, being
+subtraction ingredient for a heavy quark: the spin-dependent remainder, being
 collinear-regulated by the mass, is finite and plays no role.}
 
 \keywords{NNLO Computations, Higher-Order Perturbative Calculations, Heavy Quark
@@ -446,12 +446,32 @@ while their non-abelian part vanishes identically. This is the generalisation of
 the soft-gluon result for class-A diagrams of Ref.~\cite{Catani:2000pi}, and it
 is the reason the surviving gauge-invariant set is as small as it is.
 
+The same structure holds with the mass switched on, as it must for the massive
+radiator to be assembled from the same small set. We have computed the massive
+squark self-energy directly in the background-field model,
+\begin{equation}
+  \hat{\Sigma}_{ij}(p)=\frac{g_s^2}{16\pi^2}\,C_F\,\delta_{ij}\,
+  \Big(A_0(m^2)-2\,\bar p^2\,B_0(p^2;0,m^2)\Big)\;,
+  \qquad \bar p^2\equiv p^2-m^2\;,
+  \label{eq:selfenergy-massive}
+\end{equation}
+which reduces to Eq.~\eqref{eq:selfenergy} as $m\to0$, and the one-loop
+squark--squark--gluon vertex correction with both scalar legs off shell. The
+contraction of the vertex correction with the gluon momentum reproduces the
+difference of self-energies,
+$k_\mu\hat{\Gamma}^{\mu,a}(q,p,k)\propto T^a\big[\hat\Sigma(q^2)-\hat\Sigma(p^2)\big]$,
+with a kinematics-independent constant of proportionality, verified numerically at
+three independent off-shell points. The massive factorizable set therefore
+satisfies the naive Ward identities exactly as in the massless case: the abelian
+part of the vertex corrections cancels the self-energies, and only the box-type
+set of Fig.~\ref{fig:boxes} survives as the non-factorizable remainder.
+
 \subsection{Box-type contributions}
 
 \begin{figure}[htbp]
 \centering
 \begin{tabular}{ccc}
-\begin{tikzpicture}[baseline=(current bounding box.center),scale=0.82,every node/.style={transform shape}]
+\begin{tikzpicture}[baseline=(current bounding box.center),scale=0.78,every node/.style={transform shape}]
 \begin{feynman}
   \vertex [blobv] (H) at (0,0) {};
   \vertex [dot] (A) at (1.15,0.95) {}; \vertex [dot] (C) at (1.15,-0.95) {}; \vertex [dot] (R) at (2.4,0) {};
@@ -460,16 +480,27 @@ is the reason the surviving gauge-invariant set is as small as it is.
     (A)--[charged scalar](oi), (C)--[gluon](oB), (R)--[charged scalar](ok), };
 \end{feynman}\end{tikzpicture}
 &
-\begin{tikzpicture}[baseline=(current bounding box.center),scale=0.82,every node/.style={transform shape}]
+\begin{tikzpicture}[baseline=(current bounding box.center),scale=0.78,every node/.style={transform shape}]
 \begin{feynman}
   \vertex [blobv] (H) at (0,0) {};
-  \vertex [dot] (a) at (0.9,0.62) {}; \vertex [dot] (b) at (0.9,-0.62) {}; \vertex [dot] (e) at (2.15,0.95) {};
-  \vertex (oi) at (3.2,1.30); \vertex (ok) at (3.2,-1.05); \vertex (og) at (3.2,0.40);
-  \diagram*{ (H)--[charged scalar](a), (H)--[charged scalar](b), (a)--[gluon, half left, looseness=1.3](b),
-    (a)--[charged scalar](e), (e)--[charged scalar](oi), (e)--[gluon](og), (b)--[charged scalar](ok), };
+  \vertex [dot] (A) at (1.15,0.95) {}; \vertex [dot] (C) at (1.15,-0.95) {}; \vertex [dot] (R) at (2.15,0) {};
+  \vertex (oi) at (2.9,1.55); \vertex (ok) at (2.9,-1.55); \vertex (oB) at (3.35,0) ;
+  \diagram*{ (H)--[charged scalar](A), (H)--[charged scalar](C), (A)--[gluon](R), (C)--[gluon](R),
+    (R)--[gluon](oB), (A)--[charged scalar](oi), (C)--[charged scalar](ok), };
 \end{feynman}\end{tikzpicture}
 &
-\begin{tikzpicture}[baseline=(current bounding box.center),scale=0.82,every node/.style={transform shape}]
+\begin{tikzpicture}[baseline=(current bounding box.center),scale=0.78,every node/.style={transform shape}]
+\begin{feynman}
+  \vertex [blobv] (H) at (0,0) {};
+  \vertex [dot] (A) at (1.0,0.75) {}; \vertex [dot] (C) at (1.0,-0.75) {}; \vertex [dot] (e) at (2.2,1.05) {};
+  \vertex (oi) at (3.25,1.45); \vertex (oB) at (3.25,0.55); \vertex (ok) at (3.0,-1.25);
+  \diagram*{ (H)--[charged scalar](A), (H)--[charged scalar](C), (A)--[gluon](C),
+    (A)--[charged scalar](e), (e)--[charged scalar](oi), (e)--[gluon](oB), (C)--[charged scalar](ok), };
+\end{feynman}\end{tikzpicture}
+\\[0.5mm]
+\footnotesize (a) box & \footnotesize (b) triple-gluon box & \footnotesize (c) vertex correction
+\\[3mm]
+\begin{tikzpicture}[baseline=(current bounding box.center),scale=0.78,every node/.style={transform shape}]
 \begin{feynman}
   \vertex [blobv] (H) at (0,0) {};
   \vertex [dot] (A) at (1.25,0.75) {}; \vertex [dot] (C) at (1.75,-0.55) {};
@@ -477,38 +508,70 @@ is the reason the surviving gauge-invariant set is as small as it is.
   \diagram*{ (H)--[charged scalar](A), (H)--[charged scalar](C), (A)--[gluon](C),
     (A)--[charged scalar](oi), (C)--[gluon](oB), (C)--[charged scalar](ok), };
 \end{feynman}\end{tikzpicture}
-\\[1mm]
-\footnotesize (a) box & \footnotesize (b) factorizable & \footnotesize (c) seagull
+&
+\begin{tikzpicture}[baseline=(current bounding box.center),scale=0.78,every node/.style={transform shape}]
+\begin{feynman}
+  \vertex [blobv] (H) at (0,0) {};
+  \vertex [dot] (A) at (1.0,0.75) {}; \vertex [dot] (C) at (1.0,-0.75) {}; \vertex [dot] (L) at (1.45,0) {};
+  \vertex (oi) at (2.9,1.15); \vertex (ok) at (2.9,-1.15); \vertex (ol) at (2.9,0.45); \vertex (oB) at (2.9,-0.35);
+  \diagram*{ (H)--[charged scalar](A), (H)--[charged scalar](C), (A)--[gluon](C),
+    (A)--[charged scalar](oi), (C)--[charged scalar](ok),
+    (H)--[scalar](L), (L)--[scalar](ol), (L)--[gluon](oB), };
+\end{feynman}\end{tikzpicture}
+&
+\\[0.5mm]
+\footnotesize (d) seagull & \footnotesize (e) factorizable (spectator emission) &
 \end{tabular}
-\caption{Box-type diagrams contributing to the scalar--scalar interference at one
-loop --- the massive analogue of Fig.~14 of Ref.~\cite{Campbell:2025}. Dashed
-arrowed lines are charged scalars, coiled lines gluons, the grey blob the hard
-production vertex. The gauge-invariant set comprises the box (a), the factorizable
-hard-vertex correction (b) and the scalar seagull (c) --- the four-point
-$\tilde q\tilde q gg$ vertex at the lower vertex; crossing-symmetric partners are
-understood. The single colour decomposition $2\,\Top{i}^a\Top{i}^b
-=if^{abc}\Top{i}^c+\{\Top{}^a,\Top{}^b\}_i$ splits their sum into the abelian
-($\{\Top{}^a,\Top{}^b\}$, $13$ masters) and non-abelian ($f^{abc}$, $14$ masters)
-radiators. The topology of Ref.~\cite{Campbell:2025} with the gluon emitted off a
-colour-charged spectator $l\neq i,k$ does not arise, as the source produces only
-the $i,k$ dipole.}
+\caption{Box-type topologies for the one-loop scalar radiator, the massive analogue
+of Fig.~14 of Ref.~\cite{Campbell:2025}. Dashed arrowed lines are charged scalars,
+coiled lines gluons, the grey blob the hard production vertex; crossing partners
+are understood. Diagrams (a)--(d) are the non-factorizable set computed here: the
+box (a), the box with the emitted gluon attached at the triple-gluon vertex (b),
+the production-vertex correction with external emission (c), and the scalar
+seagull (d), which carries the four-point $\tilde q\tilde q gg$ vertex. The single
+colour decomposition $2\,\Top{i}^a\Top{i}^b=if^{abc}\Top{i}^c
++\{\Top{}^a,\Top{}^b\}_i$ splits their sum into the abelian ($13$ masters) and
+non-abelian ($14$ masters) radiators. Topology (e), emission off a colour-charged
+spectator $l\neq i,k$ with a gluon exchanged inside the dipole, is factorizable:
+it evaluates to the hard function $I_f(s)$ of Ref.~\cite{Campbell:2025} times the
+leading-order spectator current, and is included through that formula rather than
+by diagram, exactly as in the massless case.}
 \label{fig:boxes}
 \end{figure}
 
 The genuinely one-loop, non-factorizable structure resides in the box-type
 diagrams, the massive analogue of Fig.~14 of Ref.~\cite{Campbell:2025}, shown in
-Fig.~\ref{fig:boxes}. A gauge-invariant set is formed by the box (a), the factorizable hard-vertex
-correction (b) and the scalar seagull (c).
+Fig.~\ref{fig:boxes}. The non-factorizable set comprises the boxes (a), (b), the
+production-vertex correction (c) and the scalar seagull (d); the factorizable
+topology (e) enters through the hard function below.
 Ref.~\cite{Campbell:2025} additionally includes a diagram in which the gluon is
 emitted off a colour-charged spectator $l\neq i,k$; for the pure $i,k$ dipole
-computed here there is no spectator, so that topology does not arise. The
-hard-vertex correction (c) evaluates to
+computed here there is no spectator, so that topology does not arise. In the massless case the
+hard-vertex correction evaluates to
 \begin{equation}
   I_{h,f}(Q^2,t)=-\frac{g_s^2}{16\pi^2}\,\Top{i}^b\Top{k}^b\,
   \Big(\big(2Q^2-t\big)\,\Ihat_3^{2m}(Q^2,t)+\Ihat_2(Q^2)-\Ihat_2(t)\Big)\;,
   \label{eq:hardvertex}
 \end{equation}
-whose $t\to0$ limit is $2Q^2\Ihat_3^{1m}(Q^2)+\Ihat_2(Q^2)$. Using
+whose $t\to0$ limit is $2Q^2\Ihat_3^{1m}(Q^2)+\Ihat_2(Q^2)$.
+
+The massive counterpart, the factorizable topology (e) of Fig.~\ref{fig:boxes},
+we compute directly from the production-vertex correction with the emitting leg
+off shell at virtuality $t$ and the spectator leg on shell,
+\begin{equation}
+  \begin{split}
+  I_{h,f}^{m}(Q^2,t)=\frac{g_s^2}{16\pi^2}\,\Top{i}\!\cdot\Top{k}\,
+  \Big[&\big(3m^2-2Q^2+t\big)\,C_0\big(m^2,Q^2,t;0,m^2,m^2\big)\\
+  &-B_0\big(Q^2;m^2,m^2\big)+B_0\big(t;0,m^2\big)+B_0\big(m^2;0,m^2\big)\Big]\;,
+  \end{split}
+  \label{eq:hardvertex-massive}
+\end{equation}
+whose $m\to0$ limit reproduces Eq.~\eqref{eq:hardvertex} exactly, since
+$B_0(m^2;0,m^2)$ is scaleless in that limit. All four masters already belong to
+the validated basis of Sec.~\ref{sec:masters}, so Eq.~\eqref{eq:hardvertex-massive}
+is evaluated by the same compiled libraries at no extra cost. As in the massless
+case it multiplies the leading-order current and is included through this formula
+rather than by diagram. Using
 Eq.~\eqref{eq:colour-identity} the factorization counterterm splits into
 \begin{align}
   C^{\rm(nab)}(s,t,u)&=\frac{i g_s^3}{16\pi^2}f^{abc}\,\Top{i}^b\Top{k}^c\,
@@ -712,7 +775,7 @@ have no closed form in general.}
 \end{figure}
 
 While the massive triangles and boxes are evaluated numerically, the tadpole and
-all massive bubbles are known in closed form to \emph{all orders} in $\eps$, and
+all massive bubbles are known in closed form to all orders in $\eps$, and
 these expressions are part of the numerical framework (they replace the
 sector-decomposed evaluation wherever they apply). In the bare normalisation
 $\Gamma(\eps)\int(\text{Symanzik})^{-\eps}$ used by the code they read
@@ -1105,15 +1168,15 @@ equations of motion,
 \end{equation}
 so that a massive quark splitting amplitude is the scalar dipole radiator plus a
 magnetic (spin) remainder. The decisive point for a heavy quark is where these two
-pieces are singular. The scalar radiator carries the \emph{soft} singularity,
+pieces are singular. The scalar radiator carries the soft singularity,
 which is universal and mass-independent. The magnetic remainder is singular only in
-the genuine \emph{collinear} limit --- and, as Sec.~\ref{sec:nosector} shows, that
+the genuine collinear limit; as Sec.~\ref{sec:nosector} shows, that
 limit is regulated by the mass: for $m\neq0$ the propagator $1/((p+q)^2-m^2)$ in
 Eq.~\eqref{eq:vertex-decomposition} produces no collinear pole. The magnetic
-remainder is therefore \emph{finite} for a massive quark.
+remainder is therefore finite for a massive quark.
 
 The consequence, already anticipated by Czakon in the context of massive NNLO
-subtraction, is that \emph{the scalar radiator is the complete ingredient}. A
+subtraction, is that the scalar radiator is the complete ingredient. A
 subtraction term must reproduce the singular structure of the amplitude; since the
 massive amplitude's entire singular structure is the soft one, and that is exactly
 the scalar dipole radiator, no further piece is required. There is no separate
@@ -1152,7 +1215,7 @@ quoted $I_4^{\rm(nab)}$ by exactly the factorization counterterm.
 
 The mass screens the collinear singularity, so the radiator is the complete
 singular structure and the massive NNLO subtraction needs no sectorization. The
-same fact makes the radiator the \emph{complete} heavy-quark ingredient: the
+same fact makes the radiator the complete heavy-quark ingredient: the
 magnetic (spin) remainder is singular only in the collinear limit, which the mass
 regulates, so it is finite and subtraction-irrelevant, and there is no further
 splitting-function piece to assemble (Sec.~\ref{sec:splitting}). Together with the
