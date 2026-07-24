@@ -68,14 +68,14 @@ The radiator additionally satisfies the QCD Ward identity **symbolically**
   no abelian `1/ε²` double pole and its entire singular structure is soft;
   consequently the massive NNLO subtraction needs no phase-space sectorization.
 
-- **B — massive magnetic (spin) remainder** = (quark − scalar) interference,
-  which completes the massive quark splitting function.
-  *In progress.* Both radiators are reduced and their masters validated (the
-  quark radiator, 19 pure-QCD diagrams incl. n_f loops, 22 masters; the squark
-  radiator, 29 diagrams). What remains is the final assembly and the massless
-  cross-check against Höche's explicit spin remainder
-  `⟨P_{q→q}^{(1,p)}⟩` (his Eq. for the remainder), whose ε⁻² pole is the clean
-  target `−2 C_A C_F (1−z) = −8(1−z)` with `z = s/(s+u)`.
+- **B — massive magnetic (spin) remainder** = (quark − scalar) interference.
+  *Not needed for the heavy-quark subtraction* (Czakon): the remainder is singular
+  only in the collinear limit, which the mass regulates, so it is finite and
+  subtraction-irrelevant; the scalar radiator is the complete ingredient. The
+  ingredients (quark radiator, 19 diagrams/22 masters; squark radiator, 29
+  diagrams — all masters validated) and the massless cross-check target
+  `⟨P_{q→q}^{(1,p)}⟩|_{ε⁻²} = −2 C_A C_F (1−z)`, `z=s/(s+u)`, are kept in
+  `code/massive_1mass/deliverable_B/` for reference.
 
 ---
 
