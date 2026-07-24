@@ -557,19 +557,24 @@ whose $t\to0$ limit is $2Q^2\Ihat_3^{1m}(Q^2)+\Ihat_2(Q^2)$.
 
 The massive counterpart, the factorizable topology (e) of Fig.~\ref{fig:boxes},
 we compute directly from the production-vertex correction with the emitting leg
-off shell at virtuality $t$ and the spectator leg on shell,
+(mass $m_i$) off shell at virtuality $t$ and the spectator leg (mass $m_k$) on
+shell,
 \begin{equation}
   \begin{split}
-  I_{h,f}^{m}(Q^2,t)=\frac{g_s^2}{16\pi^2}\,\Top{i}\!\cdot\Top{k}\,
-  \Big[&\big(3m^2-2Q^2+t\big)\,C_0\big(m^2,Q^2,t;0,m^2,m^2\big)\\
-  &-B_0\big(Q^2;m^2,m^2\big)+B_0\big(t;0,m^2\big)+B_0\big(m^2;0,m^2\big)\Big]\;,
+  I_{h,f}^{m_i,m_k}(Q^2,t)=\frac{g_s^2}{16\pi^2}\,\Top{i}\!\cdot\Top{k}\,
+  \Big[&\big(m_i^2+2m_k^2-2Q^2+t\big)\,C_0\big(m_k^2,Q^2,t;0,m_k^2,m_i^2\big)\\
+  &-B_0\big(Q^2;m_i^2,m_k^2\big)+B_0\big(t;0,m_i^2\big)+B_0\big(m_k^2;0,m_k^2\big)\Big]\;,
   \end{split}
   \label{eq:hardvertex-massive}
 \end{equation}
-whose $m\to0$ limit reproduces Eq.~\eqref{eq:hardvertex} exactly, since
-$B_0(m^2;0,m^2)$ is scaleless in that limit. All four masters already belong to
-the validated basis of Sec.~\ref{sec:masters}, so Eq.~\eqref{eq:hardvertex-massive}
-is evaluated by the same compiled libraries at no extra cost. As in the massless
+valid for the general unequal-mass dipole. For $m_k\to m_i\equiv m$ the bracket
+collapses to
+$(3m^2-2Q^2+t)\,C_0(m^2,Q^2,t;0,m^2,m^2)-B_0(Q^2;m^2,m^2)+B_0(t;0,m^2)+B_0(m^2;0,m^2)$,
+and the $m\to0$ limit reproduces Eq.~\eqref{eq:hardvertex} exactly, since
+$B_0(m^2;0,m^2)$ is scaleless in that limit. All masters already belong to the
+validated bases of Sec.~\ref{sec:masters} (equal- and unequal-mass alike), so
+Eq.~\eqref{eq:hardvertex-massive} is evaluated by the same compiled libraries at
+no extra cost. As in the massless
 case it multiplies the leading-order current and is included through this formula
 rather than by diagram. Using
 Eq.~\eqref{eq:colour-identity} the factorization counterterm splits into

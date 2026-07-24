@@ -22,6 +22,7 @@ masses are kept independent (equal-mass and unequal-mass dipoles both covered).
 | `amplitudes/` | The deliverable **reduced amplitudes** as plain text, in terms of Passarino–Veltman masters (colour/coupling stripped). Abelian (`ampRaw_1mass`), non-abelian (`ampRaw_nab_1mass`), squark (`ampRaw_squark_1mass`); `master_list_1mass.txt` names the basis. |
 | `code/massive_1mass/` | The massive one-mass calculation: FeynArts/FeynCalc generation + reduction (`feyncalc_reproduction/`), the amplitude assemblers (`amplitude_functions_*.wl`), the master closed-forms and pySecDec builders, and all validation scripts (`validation/`). |
 | `code/massless_reference/` | The massless reference calculation (Höche's massless result reproduced), used to validate the `m→0` limit. |
+| `code/massive_2mass/` | The unequal-mass ($m_i\neq m_k$) calculation: model with independent masses per generation, 15-master basis incl. the genuine two-mass box, validated by $m_k\to m_i$ collapse onto the one-mass amplitude. |
 | `collaborator_notebook/` | S. Höche's original massless one-loop notebook `one-loop_35.nb` and the `SQCDBGF` FeynArts model it uses (standalone). |
 
 pySecDec build directories (`m_*/`, the compiled `.so` libraries) are **not**

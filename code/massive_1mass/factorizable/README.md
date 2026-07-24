@@ -19,3 +19,12 @@ of the box figure), from the production vertex with the emitting leg off shell:
 
 whose m->0 limit reproduces the massless I_{h,f} of arXiv:2505.10408 exactly.
 All four masters are in the validated basis (compiled libraries evaluate them).
+
+`ihf_2mass.wl` computes the general UNEQUAL-mass version (emitting leg m_i off
+shell at t, spectator m_k on shell):
+
+  I_hf^{m_i,m_k}(Q^2,t) = g^2/(16pi^2) Ti.Tk [ (m_i^2+2m_k^2-2Q^2+t) C0(m_k^2,Q^2,t;0,m_k^2,m_i^2)
+                       - B0(Q^2;m_i^2,m_k^2) + B0(t;0,m_i^2) + B0(m_k^2;0,m_k^2) ]
+
+m_k -> m_i reproduces the equal-mass formula above exactly; masters are in the
+validated unequal-mass basis (code/massive_2mass).
